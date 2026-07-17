@@ -6,11 +6,11 @@ const pointsLabel = document.getElementById("points");
 const progressLabel = document.getElementById("overallProgress");
 const habitCount = document.getElementById("habitCount");
 const themeButton = document.getElementById("toggleTheme");
-// ----------------------------
+
 function save() {
     localStorage.setItem("habits", JSON.stringify(habits));
 }
-// ----------------------------
+
 function createHabit(name) {
     habits.push({
         id: Date.now(),
@@ -20,20 +20,20 @@ function createHabit(name) {
     save();
     render();
 }
-// ----------------------------
+
 function deleteHabit(id) {
     habits = habits.filter(h => h.id !== id);
     save();
     render();
 }
-// ----------------------------
+
 function toggleDay(id, day) {
     const habit = habits.find(h => h.id === id);
     habit.days[day] = !habit.days[day];
     save();
     render();
 }
-// ----------------------------
+
 function totalPoints() {
     let points = 0;
     habits.forEach(h => {
@@ -43,7 +43,7 @@ function totalPoints() {
     });
     return points;
 }
-// ----------------------------
+
 function overallProgress() {
     let completed = 0;
     let total = habits.length * 30;
@@ -53,7 +53,7 @@ function overallProgress() {
     if (total === 0) return 0;
     return Math.round(completed / total * 100);
 }
-// ----------------------------
+
 function render() {
     habitContainer.innerHTML = "";
     habitCount.textContent = habits.length;
@@ -86,7 +86,7 @@ function render() {
             </div>
             <div class="days"></div>
         `;
-        // delete button
+        
         card
             .querySelector(".deleteHabit")
             .onclick = () => deleteHabit(habit.id);
@@ -109,31 +109,35 @@ function render() {
         habitContainer.appendChild(card);
     });
 }
-// ----------------------------
+
 addHabitBtn.onclick = () => {
     const name = habitInput.value.trim();
     if (name === "") return;
     createHabit(name);
     habitInput.value = "";
 };
-// enter key
+
 habitInput.addEventListener("keypress", (e) => {
     if (e.key === "Enter")
         addHabitBtn.click();
 });
-// ----------------------------
-// Dark Mode
+
+// THEME SWITCH 
 const savedTheme = localStorage.getItem("theme");
-if (savedTheme === "dark")
+if (savedTheme === "dark" || savedTheme === null) {
     document.body.classList.add("dark");
+}
+themeButton.textContent = document.body.classList.contains("dark")
+    ? "☀️"
+    : "🌙";
 themeButton.onclick = () => {
     document.body.classList.toggle("dark");
+    const dark = document.body.classList.contains("dark");
     localStorage.setItem(
         "theme",
-        document.body.classList.contains("dark")
-            ? "dark"
-            : "light"
+        dark ? "dark" : "light"
     );
+    themeButton.textContent = dark ? "☀️" : "🌙";
 };
-// ----------------------------
+
 render();

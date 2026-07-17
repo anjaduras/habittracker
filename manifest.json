@@ -1,7 +1,7 @@
 {
   "name": "Habit Tracker",
   "short_name": "Habits",
-  "description": "Track your daily habits, earn points, unlock milestones and rewards.",
+  "description": "Track your daily habits, earn points,  unlock milestones and rewards. (in dev)",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

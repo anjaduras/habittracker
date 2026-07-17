@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -6,20 +8,27 @@
 
 body {
     max-width: 700px;
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 20px;
-    font: 16px Arial, sans-serif;
+    font-family: "Source Code Pro", monospace;
+    font-size: 18px;  
+    background: #fffcf2;
+    color: #007ea7;
+    transition: .2s;
 }
 
+body.dark {
+    background: #007ea7;
+    color: #fffcf2;
+}
 header,
 section,
 footer {
-    margin-bottom: 20px;
+    margin: 15px;
 }
 
 .topStats,
 .controls,
-.rewardInput,
 .days {
     display: flex;
     gap: 10px;
@@ -32,7 +41,6 @@ footer {
 
 .card,
 #habitContainer,
-#rewardList,
 #achievementList {
     border: 1px solid #ccc;
     padding: 10px;

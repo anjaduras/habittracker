@@ -1,161 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4CAF50">
-
     <title>Habit Tracker</title>
-
     <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="style.css">
-
     <link rel=I"icon" href="icons/icon-192.png">
-
 </head>
 
 <body>
-
-<header>
-
-    <h1>Anja's Habit Tracker</h1>
-
-    <div class="topStats">
-
-        <div class="card">
-            <span>Total Points</span>
-            <h2 id="points">0 ⭐</h2>
+    <header>
+        <h1>Anja's Habit Tracker</h1>
+        <div class="topStats">
+            <div class="card">
+                <span>POINTS:</span>
+                <h2 id="points">0 ⭐</h2>
+            </div>
+            <div class="card">
+                <span>PROGRESS</span>
+                <h2 id="overallProgress">0%</h2>
+            </div>
+            <div class="card">
+                <span>HABITS</span>
+                <h2 id="habitCount">0</h2>
+            </div>
         </div>
-
-        <div class="card">
-            <span>Completion</span>
-            <h2 id="overallProgress">0%</h2>
+    </header>
+    <section class="controls">
+        <input id="habitInput" type="text" placeholder="New habit...">
+        <button id="addHabit">
+            + ADD
+        </button>
+        <button id="toggleTheme">
+            🌙 MODE
+        </button>
+    </section>
+    <section id="habitContainer">
+        <!-- Habits generated here -->
+    </section>
+    <section class="rewardSection">
+        <h2>🎁 REWARDS</h2>
+        <div class="rewardInput">
+            <input id="rewardName" type="text" placeholder="Reward name">
+            <input id="rewardCost" type="number" placeholder="Points">
+            <button id="addReward">
+                + ADD
+            </button>
         </div>
-
-        <div class="card">
-            <span>Habits</span>
-            <h2 id="habitCount">0</h2>
+        <div id="rewardList"></div>
+    </section>
+    <section class="achievementSection">
+        <h2>🏆 ACHIEVEMENTS
+        </h2>
+        <div id="achievementList">
+            <p>No achievements yet:(</p>
         </div>
-
-    </div>
-
-</header>
-
-
-<section class="controls">
-
-    <input
-        id="habitInput"
-        type="text"
-        placeholder="New habit..."
-    >
-
-    <button id="addHabit">
-        + Add Habit
-    </button>
-
-    <button id="toggleTheme">
-        🌙 Dark Mode
-    </button>
-
-</section>
-
-
-<section id="habitContainer">
-
-    <!-- Habits generated here -->
-
-</section>
-
-
-
-<section class="rewardSection">
-
-<h2>🎁 Rewards</h2>
-
-<div class="rewardInput">
-
-<input
-id="rewardName"
-type="text"
-placeholder="Reward name">
-
-<input
-id="rewardCost"
-type="number"
-placeholder="Points">
-
-<button id="addReward">
-Add Reward
-</button>
-
-</div>
-
-<div id="rewardList"></div>
-
-</section>
-
-
-
-<section class="achievementSection">
-
-<h2>🏆 Achievements</h2>
-
-<div id="achievementList">
-
-<p>No achievements yet.</p>
-
-</div>
-
-</section>
-
-
-
-<section class="buttons">
-
-<button id="exportData">
-Export Data
-</button>
-
-<button id="importButton">
-Import Data
-</button>
-
-<input
-type="file"
-id="importFile"
-hidden>
-
-</section>
-
-
-
-<footer>
-
-<p>
-
-Habit Tracker PWA
-
-</p>
-
-</footer>
-
-
-<script src="app.js"></script>
-
-<script>
-
-if ('serviceWorker' in navigator) {
-
-window.addEventListener('load', () => {
-
-navigator.serviceWorker.register('service-worker.js');
-
-});
-
-}
-
-</script>
-
+    </section>
+    <footer>
+        <p>
+            Anja © 2026 | All rights reserved
+        </p>
+    </footer>
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js');
+            });
+        }
+    </script>
 </body>
+
 </html>

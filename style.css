@@ -17,6 +17,11 @@ body {
     transition: .2s;
 }
 
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
 body.dark {
     background: #007ea7;
     color: #fffcf2;
@@ -64,5 +69,14 @@ button {
 }
 
 footer {
+    position: fixed;
+    bottom: 0;
     text-align: center;
+   /*how to center the footer in with position fixed?*/
+}
+
+button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border-color: transparent;
 }

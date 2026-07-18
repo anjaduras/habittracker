@@ -86,7 +86,7 @@ function render() {
             </div>
             <div class="days"></div>
         `;
-        
+
         card
             .querySelector(".deleteHabit")
             .onclick = () => deleteHabit(habit.id);
